@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunPE", "RunPE\RunPE.csproj", "{B732E1D1-0267-4502-9A70-9C391C27D3F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B732E1D1-0267-4502-9A70-9C391C27D3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B732E1D1-0267-4502-9A70-9C391C27D3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B732E1D1-0267-4502-9A70-9C391C27D3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B732E1D1-0267-4502-9A70-9C391C27D3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {791F948E-FFC4-4EB6-82A1-AE23680EA58A}
+	EndGlobalSection
+EndGlobal
