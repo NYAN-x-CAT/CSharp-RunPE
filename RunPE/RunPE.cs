@@ -13,7 +13,7 @@ namespace RunPE
            This program is distributed for educational purposes only.
 
         Usage:
-        [1] x86 + Release + ConfuserEx[ctrl flow]
+        [1] x86 + Release + .net reactor
         [2] RunPE.Execute(Path.Combine(RuntimeEnvironment.GetRuntimeDirectory(), "RegAsm.exe"), File.ReadAllBytes(""));
 
     */
